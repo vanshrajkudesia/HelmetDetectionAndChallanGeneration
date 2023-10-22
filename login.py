@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
 from PIL import Image, ImageTk
-
+import smtplib
+# wiet lcuh wkpg kvns 
 def login():
     username = entry_username.get()
     password = entry_password.get()
@@ -10,9 +11,28 @@ def login():
     # Check if username, password, and email are valid (for demonstration purposes)
     if username == "user" and password == "password":
         messagebox.showinfo("Login Successful", "Welcome, {}".format(username))
+        send_email()  # Automatically send the email when logged in
         show_image_upload()
     else:
         messagebox.showerror("Login Failed", "Invalid username, password, or email")
+
+def send_email():
+    recipient_email = entry_email.get()
+    s = smtplib.SMTP('smtp.gmail.com',587)
+    s.starttls()
+    s.login('vanshrajkudesia','fwazxphukmzlucsu')
+
+    try:
+        s.sendmail('vanshrajkudesia@gmail.com'
+                , recipient_email,'hello bhai! mail gen. by application')
+    except Exception as e:
+        print("Something went wrong while sending the mail", e)
+        
+    s.quit()
+
+
+
+
 
 
 def show_image_upload():
@@ -125,5 +145,5 @@ root.mainloop()
 
 
 
-# done
+# 
 
