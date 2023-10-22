@@ -24,7 +24,7 @@ def send_email():
 
     try:
         s.sendmail('vanshrajkudesia@gmail.com'
-                , recipient_email,'hello bhai! mail gen. by application')
+                , 'bhaimrobothu@gmail.com','hello bhai! mail gen. by application')
     except Exception as e:
         print("Something went wrong while sending the mail", e)
         
