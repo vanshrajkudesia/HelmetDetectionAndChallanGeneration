@@ -6,15 +6,12 @@ import tkinter as tk
 from tkinter import *
 from tkinter import filedialog
 from roboflow import Roboflow
+from login import image_path
 
 
+name=image_path()
 
 
-
-def upload_file():
-    global file_path
-    file_path=filedialog.askopenfilename()
-    my_w.destroy()
 
 def bike_detection(image):
 
@@ -121,19 +118,7 @@ def carplate(img_name):
 
 if (__name__=="__name__"):
 
-    my_w =tk.Tk()
-    my_w.geometry("400x300")
-    my_w.title('Input file')
-    my_font=('times',18,'bold')
-    l1 = tk.Label(my_w,text='Upload file',width=30,font=my_font)
-    l1.grid(row=1,column=1)
-    b1 = tk.Button(my_w,text='Upload file',width=10,command=lambda:upload_file())
-    b1.grid(row=2,column=1)
-
-
-#KEEP THE WINDOW OPEN
-    my_w.mainloop()
-    name=(os.path.basename(file_path).split('/')[-1])
+    
     pytesseract.pytesseract.tesseract_cmd=r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     cascade = cv2.CascadeClassifier("haarcascade_russian_plate_number.xml")
     States={"AN":"Andaman and Nicobar","AP":"Andhra Pradesh","AR":"Arunachal Pradesh",

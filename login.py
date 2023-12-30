@@ -168,6 +168,8 @@ def upload_image():
         uploaded_image_path = file_path
         send_email()  # Automatically send the email when logged in
         open_image_window(uploaded_image_path)
+def image_path():
+    return uploaded_image_path
         
 
 def show_image_upload():
