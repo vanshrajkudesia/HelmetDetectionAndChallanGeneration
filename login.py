@@ -19,6 +19,8 @@ def login():
     password = entry_password.get()
     global email_org 
     email_org = entry_email.get()
+    global rc
+    rc = entry_rc.get()
 
     # Check if username, password, and email are valid (for demonstration purposes)
     if username == "user" and password == "password":
@@ -39,7 +41,7 @@ def send_email():
 
     # Email configuration
     sender_email = 'vanshrajkudesia'
-    password = '***lodqamniuvzhju'  # Replace with your email password
+    
     
     # Create message container
     message = MIMEMultipart()
@@ -119,6 +121,7 @@ def convert_image_to_pdf(image_path, pdf_path):
             Location: Earth
             Violation: Riding without a helmet
             Fine Amount: 1000
+            RC Details: {rc}
 
         We emphasize the importance of wearing a helmet while riding a two-wheeler. Helmets are designed to protect you in case of accidents, significantly reducing the risk of head injuries.
 
@@ -252,13 +255,19 @@ label_password.grid(row=2, column=0, sticky=tk.W)
 entry_password = tk.Entry(login_frame, show="*", bg=bg_color, fg=fg_color, font=("Arial", 16))
 entry_password.grid(row=2, column=1, padx=10, pady=10)
 
+# Create password label and entry
+label_rc = tk.Label(login_frame, text="RC Details:", bg=bg_color, fg=fg_color, font=("Arial", 16))
+label_rc.grid(row=3, column=0, sticky=tk.W)
+entry_rc = tk.Entry(login_frame, bg=bg_color, fg=fg_color, font=("Arial", 16))
+entry_rc.grid(row=3, column=1, padx=10, pady=10)
+
 # Create login button with dark mode colors
 login_button = tk.Button(login_frame, text="Login", command=login, bg=bg_color, fg=fg_color, font=("Arial", 16))
-login_button.grid(row=3, column=0, columnspan=2, pady=20)
+login_button.grid(row=4, column=0, columnspan=2, pady=20)
 
 # Create a label to display the uploaded image
 uploaded_image_label = tk.Label(login_frame, bg=bg_color)
-uploaded_image_label.grid(row=4, column=0, columnspan=2, pady=10)
+uploaded_image_label.grid(row=5, column=0, columnspan=2, pady=10)
 
 
 
