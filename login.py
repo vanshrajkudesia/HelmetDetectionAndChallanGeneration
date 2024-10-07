@@ -91,8 +91,8 @@ def send_email():
     try:
         s= smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login('vanshrajkudesia','sjlodqamniuvzhju')
-        s.sendmail('vanshrajkudesia@gmail.com', recipient_email, message.as_string())
+        s.login('__username__','__apiKey___')
+        s.sendmail('__email___', recipient_email, message.as_string())
         print("Email sent successfully!")
     except Exception as e:
         print("Something went wrong while sending the mail", e)
